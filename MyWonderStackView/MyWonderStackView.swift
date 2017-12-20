@@ -41,25 +41,23 @@ class MyWonderStackView: UIScrollView {
         guard !initializing else { return }
         
         customSubviews.append(view)
-        
-        let targetSize = CGSize(width: frame.width, height: 0)
-        view.frame.size = view.systemLayoutSizeFitting(targetSize,
-                                                       withHorizontalFittingPriority: .defaultHigh,
-                                                       verticalFittingPriority: .defaultHigh)
-        view.frame.origin.y = contentArea.height
-        
-        contentArea = contentArea.union(view.frame)        
-        scrollRectToVisible(view.frame, animated: false)
     }
     
-    override func willRemoveSubview(_ subview: UIView) {
-        super.willRemoveSubview(subview)
-        if let index = customSubviews.index(of: subview) {
-            customSubviews.remove(at: index)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if customSubviews.count > 0 {
+            let targetSize = CGSize(width: frame.width, height: 0)
+            
             contentArea = customSubviews.reduce(CGRect(), { (all, element) -> CGRect in
+                element.frame.size = element.systemLayoutSizeFitting(targetSize,
+                                                                     withHorizontalFittingPriority: .defaultHigh,
+                                                                     verticalFittingPriority: .defaultHigh)
+                element.frame.origin.y = all.maxY
                 return all.union(element.frame)
             })
         }
+        else {
+            contentArea = .zero
+        }
     }
-
 }

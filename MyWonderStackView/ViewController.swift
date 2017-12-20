@@ -15,7 +15,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var width: UITextField!
     @IBOutlet weak var height: UITextField!
     @IBOutlet weak var label: UITextField!
-    
+    var editLabel: UILabel? {
+        didSet {
+            oldValue?.backgroundColor = .white
+            editLabel?.backgroundColor = .yellow
+            label.text = editLabel?.text
+        }
+    }
+        
     @IBAction func addAction(_ sender: Any) {
 //        let newView = SizedView(frame: .init(origin: .zero,
 //                                             size: CGSize(width: width.intrinsicMetric,
@@ -31,9 +38,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addLabel(_ sender: Any) {
+        if let label = editLabel {
+            label.text = self.label.text
+            label.superview?.setNeedsLayout()
+            editLabel = nil
+            return
+        }
+        
         let label = UILabel()
         label.text = self.label.text
         label.numberOfLines = 0
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self,
+                                         action: #selector(selectLabel(_:)))
+        label.addGestureRecognizer(tap)
         scrollView.addSubview(label)
     }
     @IBAction func removeAction(_ sender: Any) {
@@ -42,6 +60,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func selectLabel(_ gesture: UITapGestureRecognizer) {
+        guard let label = gesture.view as? UILabel else { return }
+        editLabel = label
+    }
 }
 
 final class SizedView: UIView {
