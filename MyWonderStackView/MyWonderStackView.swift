@@ -18,18 +18,37 @@ class MyWonderStackView: UIScrollView {
     override var subviews: [UIView] {
         return customSubviews
     }
+    private var initializing = true
     
-    func add(subview: UIView) {
-        customSubviews.append(subview)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialized()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialized()
+    }
+    
+    private func initialized() {
+        DispatchQueue.main.async {
+            self.initializing = false
+        }
+    }
+    
+    override func addSubview(_ view: UIView) {
+        super.addSubview(view)
+        guard !initializing else { return }
+        
+        customSubviews.append(view)
         
         let targetSize = CGSize(width: frame.width, height: 0)
-        subview.frame.size = subview.systemLayoutSizeFitting(targetSize,
+        view.frame.size = view.systemLayoutSizeFitting(targetSize,
                                                              withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
-        subview.frame.origin.y = contentArea.height
+        view.frame.origin.y = contentArea.height
         
-        contentArea = contentArea.union(subview.frame)
-        addSubview(subview)
-        scrollRectToVisible(subview.frame, animated: false)
+        contentArea = contentArea.union(view.frame)        
+        scrollRectToVisible(view.frame, animated: false)
     }
     
     override func willRemoveSubview(_ subview: UIView) {

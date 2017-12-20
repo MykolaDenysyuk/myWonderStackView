@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     let colors: [UIColor] = [.red, .green, .yellow, .black, .blue]
-    @IBOutlet weak var scrollView: MyWonderStackView!
+    @IBOutlet weak var scrollView: UIView!
     @IBOutlet weak var width: UITextField!
     @IBOutlet weak var height: UITextField!
     
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
                                              size: CGSize(width: width.intrinsicMetric,
                                                           height: height.intrinsicMetric)))
         newView.backgroundColor = colors[scrollView.subviews.count % colors.count]
-        scrollView.add(subview: newView)
+        scrollView.addSubview(newView)
     }
     
     @IBAction func removeAction(_ sender: Any) {
