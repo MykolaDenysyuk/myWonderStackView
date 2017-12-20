@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIView!
     @IBOutlet weak var width: UITextField!
     @IBOutlet weak var height: UITextField!
+    @IBOutlet weak var label: UITextField!
     
     @IBAction func addAction(_ sender: Any) {
 //        let newView = SizedView(frame: .init(origin: .zero,
@@ -29,6 +30,12 @@ class ViewController: UIViewController {
         scrollView.addSubview(view)
     }
     
+    @IBAction func addLabel(_ sender: Any) {
+        let label = UILabel()
+        label.text = self.label.text
+        label.numberOfLines = 0
+        scrollView.addSubview(label)
+    }
     @IBAction func removeAction(_ sender: Any) {
         if let last = scrollView.subviews.last {
             last.removeFromSuperview()

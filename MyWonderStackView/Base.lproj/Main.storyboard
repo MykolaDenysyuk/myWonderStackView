@@ -19,23 +19,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5X-6D-hJB" customClass="MyWonderStackView" customModule="MyWonderStackView" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="343" height="476"/>
+                                <rect key="frame" x="16" y="20" width="343" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="width" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TU5-zW-Oa5">
-                                <rect key="frame" x="16" y="504" width="343" height="30"/>
+                                <rect key="frame" x="199" y="510" width="160" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WN2-iy-zkx">
-                                <rect key="frame" x="16" y="542" width="343" height="30"/>
+                                <rect key="frame" x="199" y="548" width="160" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D82-kS-PGf">
-                                <rect key="frame" x="157.5" y="586" width="60" height="30"/>
+                                <rect key="frame" x="249.5" y="586" width="60" height="30"/>
                                 <state key="normal" title="add item"/>
                                 <connections>
                                     <action selector="addAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="amx-iT-xwS"/>
@@ -48,28 +48,48 @@
                                     <action selector="removeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EFN-H5-TyI"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="label text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FWc-p6-dJP">
+                                <rect key="frame" x="16" y="548" width="160" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qk5-mx-ADY">
+                                <rect key="frame" x="65" y="586" width="63" height="30"/>
+                                <state key="normal" title="add label"/>
+                                <connections>
+                                    <action selector="addLabel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tpZ-rH-V3f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="D82-kS-PGf" firstAttribute="top" secondItem="WN2-iy-zkx" secondAttribute="bottom" constant="14" id="3rl-fY-pGH"/>
-                            <constraint firstItem="WN2-iy-zkx" firstAttribute="top" secondItem="TU5-zW-Oa5" secondAttribute="bottom" constant="8" id="7tI-yB-LeI"/>
+                            <constraint firstItem="D82-kS-PGf" firstAttribute="top" secondItem="WN2-iy-zkx" secondAttribute="bottom" constant="8" id="0x0-UR-zXO"/>
+                            <constraint firstItem="qk5-mx-ADY" firstAttribute="top" secondItem="FWc-p6-dJP" secondAttribute="bottom" constant="8" id="2kF-V4-VN2"/>
+                            <constraint firstItem="WN2-iy-zkx" firstAttribute="leading" secondItem="FWc-p6-dJP" secondAttribute="trailing" priority="999" constant="23" id="2mH-8l-7vt"/>
+                            <constraint firstItem="FWc-p6-dJP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CzM-29-fsn"/>
                             <constraint firstItem="F5X-6D-hJB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G0M-sA-aDF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WN2-iy-zkx" secondAttribute="trailing" constant="16" id="GEK-Ee-o2l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F5X-6D-hJB" secondAttribute="trailing" constant="16" id="J8l-kY-bAH"/>
-                            <constraint firstItem="D82-kS-PGf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OSX-2z-vKk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TU5-zW-Oa5" secondAttribute="trailing" constant="16" id="QEU-zz-xd5"/>
+                            <constraint firstItem="Lfv-wT-JE5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JHh-XH-uCW"/>
+                            <constraint firstItem="TU5-zW-Oa5" firstAttribute="top" secondItem="F5X-6D-hJB" secondAttribute="bottom" constant="8" id="K2x-5Y-5DS"/>
+                            <constraint firstItem="FWc-p6-dJP" firstAttribute="centerY" secondItem="WN2-iy-zkx" secondAttribute="centerY" id="KgM-3n-6KK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TU5-zW-Oa5" secondAttribute="trailing" constant="16" id="Kgg-SO-n4S"/>
+                            <constraint firstItem="FWc-p6-dJP" firstAttribute="width" secondItem="WN2-iy-zkx" secondAttribute="width" id="NDM-k3-HuL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lfv-wT-JE5" secondAttribute="bottom" constant="13" id="QQ0-cW-o5L"/>
+                            <constraint firstItem="WN2-iy-zkx" firstAttribute="top" secondItem="TU5-zW-Oa5" secondAttribute="bottom" constant="8" id="T9x-Vt-x7h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WN2-iy-zkx" secondAttribute="trailing" constant="16" id="UkX-aQ-z7m"/>
+                            <constraint firstItem="D82-kS-PGf" firstAttribute="centerX" secondItem="WN2-iy-zkx" secondAttribute="centerX" id="VBx-SE-NlZ"/>
+                            <constraint firstItem="Lfv-wT-JE5" firstAttribute="top" secondItem="D82-kS-PGf" secondAttribute="bottom" constant="8" id="Xdt-r5-l8n"/>
+                            <constraint firstItem="TU5-zW-Oa5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="YCO-iS-XHZ"/>
                             <constraint firstItem="F5X-6D-hJB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h1l-Ln-hTc"/>
-                            <constraint firstItem="TU5-zW-Oa5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iU1-mF-Gkh"/>
-                            <constraint firstItem="WN2-iy-zkx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jlJ-If-fpw"/>
-                            <constraint firstItem="TU5-zW-Oa5" firstAttribute="top" secondItem="F5X-6D-hJB" secondAttribute="bottom" constant="8" id="tzh-lL-YV5"/>
-                            <constraint firstItem="Lfv-wT-JE5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uHn-Gb-Sm1"/>
-                            <constraint firstItem="Lfv-wT-JE5" firstAttribute="top" secondItem="D82-kS-PGf" secondAttribute="bottom" constant="8" id="uNT-X9-6VN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lfv-wT-JE5" secondAttribute="bottom" constant="13" id="w2a-qX-oUZ"/>
+                            <constraint firstItem="qk5-mx-ADY" firstAttribute="centerX" secondItem="FWc-p6-dJP" secondAttribute="centerX" id="lFM-cu-Tpd"/>
+                            <constraint firstItem="TU5-zW-Oa5" firstAttribute="width" secondItem="WN2-iy-zkx" secondAttribute="width" id="xp4-lx-ska"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="height" destination="WN2-iy-zkx" id="UEw-1K-ej6"/>
+                        <outlet property="label" destination="FWc-p6-dJP" id="tBr-9L-ob5"/>
                         <outlet property="scrollView" destination="F5X-6D-hJB" id="NvG-7M-vaf"/>
                         <outlet property="width" destination="TU5-zW-Oa5" id="xzp-ag-DTh"/>
                     </connections>
