@@ -16,11 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var height: UITextField!
     
     @IBAction func addAction(_ sender: Any) {
-        let newView = SizedView(frame: .init(origin: .zero,
-                                             size: CGSize(width: width.intrinsicMetric,
-                                                          height: height.intrinsicMetric)))
-        newView.backgroundColor = colors[scrollView.subviews.count % colors.count]
-        scrollView.addSubview(newView)
+//        let newView = SizedView(frame: .init(origin: .zero,
+//                                             size: CGSize(width: width.intrinsicMetric,
+//                                                          height: height.intrinsicMetric)))
+//        newView.backgroundColor = colors[scrollView.subviews.count % colors.count]
+//        scrollView.addSubview(newView)
+        let view = UIView()
+        
+        view.heightAnchor.constraint(equalToConstant: height.intrinsicMetric).isActive = true
+        view.widthAnchor.constraint(equalToConstant: width.intrinsicMetric).isActive = true
+        view.backgroundColor = colors[scrollView.subviews.count % colors.count]
+        scrollView.addSubview(view)
     }
     
     @IBAction func removeAction(_ sender: Any) {

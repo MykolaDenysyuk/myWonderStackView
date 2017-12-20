@@ -44,7 +44,8 @@ class MyWonderStackView: UIScrollView {
         
         let targetSize = CGSize(width: frame.width, height: 0)
         view.frame.size = view.systemLayoutSizeFitting(targetSize,
-                                                             withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
+                                                       withHorizontalFittingPriority: .defaultHigh,
+                                                       verticalFittingPriority: .defaultHigh)
         view.frame.origin.y = contentArea.height
         
         contentArea = contentArea.union(view.frame)        
